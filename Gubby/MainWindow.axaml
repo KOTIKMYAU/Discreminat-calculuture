@@ -30,7 +30,7 @@
                                  Height="10" 
                                  Margin="0 0 10 0"
                                  KeyDown="TextBox_KeyDown" 
-                                 TextChanged="TextBox_TextChanged"/>
+                                 TextChanged= "TextBox_TextChanged"/>
                         <TextBox Name="B" 
                                  TextWrapping="Wrap" 
                                  MaxLength="140" 
@@ -38,7 +38,7 @@
                                  Height="10" 
                                  Margin="0 0 10 0"
                                  KeyDown="TextBox_KeyDown" 
-                                 TextChanged="TextBox_TextChanged"/>
+                                 TextChanged= "TextBox_TextChanged"/>
                         
                         <TextBox Name="C" 
                                  TextWrapping="Wrap" 
@@ -47,7 +47,7 @@
                                  Height="10" 
                                  Margin="0 0 10 0"
                                  KeyDown="TextBox_KeyDown" 
-                                 TextChanged="TextBox_TextChanged"/>
+                                 TextChanged= "TextBox_TextChanged"/>
 
                         <Button Width="50"
                                 Content="➤" 

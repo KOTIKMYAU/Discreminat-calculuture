@@ -15,8 +15,10 @@ public partial class MainWindow : Window
     private double OneX = 0;
     private double TwoX = 0;
     private string No = "Нет корней";
+    private string Error = "Это не квадратное уравнение!!!";
+    
     private const string FilePath = "C:\\Users\\User\\Documents\\text.txt";
-
+    
     public MainWindow()
     {
         InitializeComponent();
@@ -26,7 +28,7 @@ public partial class MainWindow : Window
     }
     private void TextBox_TextChanged(object? sender, TextChangedEventArgs e)
     {
-        
+        // он не бесполезен честнооооо.......
     }
     
     private void TextBox_KeyDown(object? sender, KeyEventArgs e)
@@ -37,13 +39,23 @@ public partial class MainWindow : Window
             a = double.Parse(A.Text);
             b = double.Parse(B.Text);
             c = double.Parse(C.Text);
-            D = (b*b)-4*a*c;
-            if (D >= 0)
-            {
+            
+            
+            D = (b * b) - 4 * a * c;
+            if (D > 0 & a != 0) 
+            { 
                 OneX = (-b + (Math.Sqrt(D))) / (2 * a);
                 TwoX = (-b - (Math.Sqrt(D))) / (2 * a);
+                SaveMessage();
+            }
+            else if (a == 0)
+            {
+                SendMessage.Text = Error;
+                SendMessage1.Text = Error;
+                SaveMessage();
             }
             
+
         }
         SaveMessage();
         
@@ -51,16 +63,26 @@ public partial class MainWindow : Window
     
     private void SaveMessage()
     {
-        if (D >= 0)
+        if (D > 0 & a != 0)
         {
             SendMessage.Text = OneX.ToString();
             SendMessage1.Text = TwoX.ToString();
         }
-        else
+        else if (a == 0)
+        {
+            SendMessage.Text = Error;
+            SendMessage1.Text = Error;
+        }
+        else if (D == 0 & a != 0)
+        {
+            SendMessage.Text = OneX.ToString();
+        }
+        else if (D < 0 & a != 0)
         {
             SendMessage.Text = No;
             SendMessage1.Text = No;
         }
+        
     }
     private void Button_Click(object? sender, RoutedEventArgs e)
     {
@@ -68,12 +90,18 @@ public partial class MainWindow : Window
             b = double.Parse(B.Text);
             c = double.Parse(C.Text);
             D = (b*b)-4*a*c;
-            OneX = (-b + (Math.Sqrt(D)))/(2*a);
-            TwoX = (-b - (Math.Sqrt(D)))/(2*a);
-
-        SaveMessage();
-        
+            if (D > 0 & a != 0) 
+            { 
+                OneX = (-b + (Math.Sqrt(D))) / (2 * a);
+                TwoX = (-b - (Math.Sqrt(D))) / (2 * a);
+                SaveMessage();
+            }
+            else if (a == 0)
+            {
+                SendMessage.Text = Error;
+                SendMessage1.Text = Error;
+                SaveMessage();
+            }
     }
-    
 }
 
